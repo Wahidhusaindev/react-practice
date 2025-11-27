@@ -15,6 +15,9 @@ const Navbar = () => {
         <li>
           <Link to="/contact" className="hover:text-gray-300">Contact</Link>
         </li>
+        <li>
+          <Link to="/api" className="hover:text-gray-300">API</Link>
+        </li>
       </ul>
     </nav>
   );

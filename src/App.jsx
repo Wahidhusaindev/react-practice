@@ -3,7 +3,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Navbar from "./components/Navbar";
 import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+import API from "./components/API";
 
 const App = () => {
   return (
@@ -14,6 +14,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/api" element={<API />} />
       </Routes>
     </>
   );
