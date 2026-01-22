@@ -1,21 +1,13 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./components/Home";
-import About from "./components/About";
-import Navbar from "./components/Navbar";
-import Contact from "./components/Contact";
-import API from "./components/API";
-
+import {Routes, Route } from "react-router-dom";
+import Home from './pages/Home'
+import Navar from "./components/Navar";
 const App = () => {
   return (
     <>
-      <Navbar />
-      <Routes>
-
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/api" element={<API />} />
-      </Routes>
+     <Navar />
+     <Routes>
+      <Route path="/" element={<Home/>} />
+     </Routes>
     </>
   );
 };
