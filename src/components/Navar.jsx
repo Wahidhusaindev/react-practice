@@ -24,9 +24,15 @@ const Navbar = () => {
             Contact
           </Link>
         </li>
+        <li>
+          <Link className="hover:text-green-200 transition" to="/dropdown">
+            DropDown
+          </Link>
+        </li>
          <Link className="hover:text-green-200 transition" to="/searchBar">
             Search Data
           </Link>
+
       </ul>
     </nav>
   );
