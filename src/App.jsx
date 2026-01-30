@@ -5,7 +5,9 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import SearchApp from './components/SearchApp';
 import Dropdown from "./components/Dropdown";
+
 const App = () => {
+ 
   return (
     <>
      <Navar />

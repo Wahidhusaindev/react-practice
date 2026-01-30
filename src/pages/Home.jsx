@@ -1,39 +1,63 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { increment, decrement } from '../features/counterSlice'
+import { login, logout } from '../features/userSlice'
 
 const Home = () => {
-    return (
-        <div className='min-h-screen bg-amber-200'>
-            <div className="min-h-screen bg-amber-200 flex items-center">
-                <div className="mx-auto max-w-5xl px-6 py-12 text-center">
-                    <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
-                        Superpowered SEO for ambitious brands
-                    </h1>
+  const count = useSelector((state) => state.counter)
+  const user = useSelector((state) => state.user)
+  const dispatch = useDispatch()
 
-                    <p className="mt-6 text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-                        Media Heroes is an Australian SEO agency focused on profitable, sustainable growth.
-                        We turn organic search into qualified demand, stronger pipelines, and long-term revenue.
-                    </p>
+  return (
+    <div className="min-h-screen bg-amber-200 flex items-center">
+      <div className="mx-auto max-w-5xl px-6 py-12 text-center">
 
-                    <p className="mt-4 text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-                        Your SEO strategy is led by senior specialists with 20+ years of hands-on experience,
-                        combining deep technical SEO with AI-driven optimisation.
-                    </p>
+        <h1 className="text-4xl font-extrabold">
+          Redux Toolkit Demo
+        </h1>
 
-                    <div className="mt-10 flex justify-center gap-4">
-                        <button className="rounded-lg bg-pink-500 px-8 py-3 font-semibold text-white transition hover:bg-pink-700">
-                            Book SEO Consultation
-                        </button>
+        {/* Counter Section */}
+        <h2 className="mt-6 text-xl font-bold">Counter: {count}</h2>
+        <button
+          className="bg-blue-500 text-white px-4 py-2 m-2 rounded"
+          onClick={() => dispatch(increment())}
+        >
+          +
+        </button>
+        <button
+          className="bg-blue-500 text-white px-4 py-2 m-2 rounded"
+          onClick={() => dispatch(decrement())}
+        >
+          -
+        </button>
 
-                        <button className="rounded-lg border border-pink-500 px-8 py-3 font-semibold text-pink-600 transition hover:bg-pink-100">
-                            Learn More
-                        </button>
-                    </div>
-                </div>
-            </div>
+        <hr className="my-6" />
 
-        </div>
-    )
+        {/* User Section */}
+        {user.isLoggedIn ? (
+          <>
+            <h2 className="text-2xl font-semibold">
+              Welcome, {user.name} 👋
+            </h2>
+            <button
+              className="bg-red-500 text-white px-4 py-2 mt-4 rounded"
+              onClick={() => dispatch(logout())}
+            >
+              Logout
+            </button>
+          </>
+        ) : (
+          <button
+            className="bg-green-500 text-white px-4 py-2 mt-4 rounded"
+            onClick={() => dispatch(login('Wahid Husain'))}
+          >
+            Login
+          </button>
+        )}
+
+      </div>
+    </div>
+  )
 }
 
 export default Home
